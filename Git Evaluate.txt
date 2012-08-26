@@ -1,0 +1,130 @@
+﻿重命名tag
+重命名tag有两种方式：
+
+1.删除原tag，重新添加
+2.git tag -f 强制替换已存在的tag后，再删除原tag
+$ git tag -f <new-tag> <old-tag>
+$ git tag -d <old-tag>
+
+tag的分类
+1.轻量型标签 轻量型标签直接使用 $ git tag <tag-name> <git-object> 即可创建
+2.标注型(annotated)标签 标注型标签可记录更多的信息，使用 $ git tag -a <tag-name> <git-object> -m ‘tag message’即可创意一个标注性标签
+
+分支
+还可以直接使用checkout -b命令来创建分支后并切换到新的分支
+
+$ git checkout -b dev
+$ git branch -rm <old-branch> <new-branch>
+
+远程分支
+推送本地分支到远程服务器
+
+$ git push <remote> <branch-name>[:<remote-branch-name>]远程分支名如果省略，则使用本地分支名作为远程分支名
+
+$ git push <remote> <branch-name>
+
+# 删除分支
+$ git branch -d <branch-name>
+# 强制删除分支
+$ git branch -D <branch-name>删除远程分支
+
+$ git push <remote> :<remote-branch-name>这个命令是不是可以从推送本地分支到远程分支的命令中得到一点灵感？是的，省略本地分支名后，远程分支即被删除！
+
+git branch -v命令将附加显示最后一次提交相关信息的分支信息
+
+$ git branch -v
+# 查看已合并的分支
+$ git branch --merge
+# 查看未合并的分支
+$ git branch --no-merged
+
+
+分支合并
+当一个分支完成预期的工作，通过测试后，便可合并到主干，作为稳定版本进行后续开发，合并分支的命令非常简单：merge branch-name
+
+$ git merge dev如果顺利，dev分支将自动地合并到当前分支。当然很多时候会产生冲突，这个时候就需要手动坚决冲突后再进行合并。
+
+在git中如遇冲突，会显示冲突提示，合并会中断
+
+ 
+conflict
+此时你可以使用git mergetool命令调用merge工具进行手动合并
+
+$ git mergetool
+
+mergetool在配置项进行配置，以下是使用vimdiff的merge操作界面
+
+ 
+mergetool vimdiff
+手动解决完冲突后，还需要进行一次提交，便完成了整个手动合并过程。
+
+
+rebase
+rebase亦是将分支的修改进行“合并”。但在具体行为上略有不同，使用merge进行合并，更新部分依然会视作是从分支而来；而rebase则是直接将更新合并到新分支，相当于是在合并分支的直接修改。如果我们的更新是非常小，不足以作为一个分支进行合并，并且不想污染版本日志，那么便可以使用rebase来合并更新。
+
+git配置git配置文件根据作用域的不同分为三种：
+
+•系统配置文件（git安装目录/gitconfig）
+•用户配置文件（用户主目录/.gitconfig）
+•项目配置文件（.git/config）
+git配置项都通过git config命令写入，传入不同参数写入不同的配置文件
+
+$ git config --system/--global/•git config –system 写入系统配置
+•git config –global 写入用户配置
+•git config 写入项目配置
+
+
+.gitIgnore 文件忽略哪些不被Git跟踪的文件
+全局忽略样式
+
+
+你可以使用这个命令查看分支 
+
+git branch                 查看分支 
+git branch -r              查看远程分支 
+git branch -a              查看所有分支 
+git branch --no-merge      查看所有未合并分支 
+git branch --merge         查看所有已经合并的分支 
+
+
+revert
+还原已提交的修改（已经提交过的修改，可以反悔～） 
+
+还原最近一次提交的修改：
+$ git revert HEAD还原指定版本的修改：
+$ git revert commit-idstash
+先将未提交的修改暂存起来，接着清除所有改动，使之与没修改时一样。 
+
+若你正在开发功能 A，又需立即去开发功能 B。A 的代码正改到一半，未认真整理，你不想立即提交。此时……请呼叫 stash ～。 
+
+它会使你所有未提交的修改瞬间不见了：
+$ git stash它会使刚刚不见了的修改，瞬间又回来了：
+$ git stash pop【TIP】以上命令皆有更多参数，另有一些 Git 命令我们此处没有介绍。但是，这已足令你使用 Git 时游刃有余，你会觉得，Git 简直是一件神器！:-) 
+
+【TIP】’$ git help’ 与 ‘$ git help 命令名’ 会在你需要的时候，无私地帮助你。:-) 
+
+附：git push 失败的解决办法
+假设执行操作：
+
+1. 修改代码
+2. git commit
+3. git push此时 push 失败（错误提示：! [rejected] master -> master (non-fast-forward) ） 
+
+解决办法：
+
+$ git pull若成功，则：
+
+$ git push origin master:your-id完事。 
+
+若失败（提示：CONFLICT (content): Merge conflict in 文件名），则： 
+
+冲突的文件会有类似下面的代码块：
+
+<<<<HEAD
+你修改的代码
+============
+其他人修改的代码
+>>>>>commit id of others'考虑你和他人对代码的修改，更新成合适的内容，并删除 <<<、===、>>> 3行标记符号，保存文件。
+
+$ git commit -am "resolve conflict"
+$ git push origin master:your-id
