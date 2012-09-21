@@ -1,0 +1,42 @@
+﻿Apple 苹果 IOS系统下如何使用goagentF^nq1ang 
+最近迷恋上goagent这个软件 
+在免费的F^nq1ang工具当中，我非常喜欢goagent这个软件，太给力了。Google就是google，大公司，给力啊！！！ 
+废话少说，言归正传。说说正题。 
+
+第一，   你首先要清楚goagent是什么，不懂得同学可以去百度或者google。 
+第二，   你要会使用goagent，最起码你要懂得如何在windows平台上使用。不懂的去百度搜索教程。很简单。 
+第三，   接下来就是在IOS系统下越狱了，首先你要有台IOS设备并且越狱了的。没越狱的朋友可以去搜索越狱的教程，现在A4和A5的设备都可以完美越狱了。 
+第四，   打开你的IOS设备，连接上网络，打开cydia，进去添加源http://goagent-app.googlecode.com/svn/trunk/cydia/ 
+第五，   添加好了之后呢，你进这个源里面分别安装python 2.7.1 和 goagent-local 这2个插件，按顺序安装。忘了说，你进cdyia的时候要以 开发者 的身份进去，而不是用户，这点很重要。 
+第六，   接下来，你的IOS设备要装有2个工具才可以完成以下的步骤，要装有SBsettings和ifile这2个软件，这也是越狱之后必装的2个插件，不懂得小白可以去cdyia里下载安装。（当你发现你在cdyia里下载某个插件的时候会出现报错，这个时候重启下设备就可以了，再继续下载。） 
+第七，   一切都安装好了之后，你要用ifile进入到以下路径/User/goagent-local/proxy.ini，然后用文本编辑器打开proxy.ini这个文件，你会发现跟windows下使用goagent使用的方法是一样的，这个时候你在ID后面填入你在goagent下创建的ID就可以了，然后保存。 
+第八，   这个时候用IOS的safari浏览器打开以下网址：也就是官方教程的网址：http://code.google.com/p/goagent/wiki/GoAgent_IOS  其他的英文不看，因为我都写成中文在上面了，直接看到Step by step下面 的这个一步Import Goagent Certificate(CA.cert). Open mobile safari to download it from here to install Or Use iPhone Configuration Utility,see this link    这个时候点击，here这个单词，这个时候会跳转，设备会提示你安装一个证书，直接点安装，确认什么的就可以了，直到设备提示成功，OK就可以了。 
+第九，   这个时候基本就差不多，再打开cdyia，进去刚才添加的源里面安装goagent-toggle这个插件，安装完毕之后，再在IOS设备里打开SBsettings，然后在set window toggles里打开Goagent这个选项。这个时候设备会自动注销主屏幕，不用担心，静静等待设备自动开机。 
+第十，   然后打开IOS系统下的设置-----WIFI----你当前连接什么wifi你就点进去，然后拉到下面，有个httpDa1L1，你点击自动那个按钮，然后再URL里面填写file://localhost/var/stash/Applications/MobileSafari.app/8087.pac 
+第十一，              哈哈，基本就大功告成啦，这个时候重启一下，最好，然后在SBsetting快捷键里打开goagent这个选项。接下来打开IOS自带的youtube这个程序看看，是不是已经顺利连上去了。哈哈。本人亲测itouch4跟ipad2 都可以连接facebook和youtube还有推特。其他的外国网站应该都没问题，看youtube还比较流畅。从此摆脱恼人的Vρ∩。哈哈！太喜欢goagent，感谢开发这个软件的大神们。THANKS！ 
+
+
+
+--------------------------------------------------------------------------------
+
+喜欢的朋友顶我啊，写了我半个多小时，冬天手冷啊 
+
+--------------------------------------------------------------------------------
+
+写在今天2012年1月27日 
+上次发了这篇帖子，也得到了不少网友的支持也有不少网友质疑我写的内容。 
+最近上网看了下，特来写以下这段文字。 
+
+我的设备是 itouch4 5.0.1系统 已越狱 
+          ipad 3G+wifi 5.0.1系统 已越狱 
+亲测，全部都可以看youtube 上facebook ，没任何问题，youtube打得开也可以看视频，网速不算很卡，缓冲以下就可以看。 
+我看到很多网友反映 说按照我的步骤来 最后还是用不了。 
+这个问题就有点含糊了，我希望那些朋友可以认真看以下我的步骤。 
+整个教程的前提是 你要有一个goagent的ID 而且你要保证这个ID在windows平台上可以翻过去。 
+然后按照教程里 把三个插件依次装好，还有一个CA的证书，然后修改INI文件 填入你的ID 
+然后在代*理那里填入地址。 
+然后再试试。 
+我在教程里有个链接，就是安装CA的链接，如果有怀疑的朋友可以去点击那个链接，参考官网的教程，然后再对比我的教程，然后再摸索。 
+至于跟帖已经成功的朋友，希望你们把你们的经验多分享给别人，大家都可以使用。 
+谢谢大家， 
+新年快乐！ 
