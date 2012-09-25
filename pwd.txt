@@ -7,3 +7,4 @@ exptest.ruijie.com.cn
 172.16.3.232:19833 root p@ssw0rd!
 F9FE8B0E5C21
 YY_Rick_BJ:19426801
+WCproxy
